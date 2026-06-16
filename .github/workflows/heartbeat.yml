@@ -1,0 +1,30 @@
+name: SEO Heartbeat Pulse
+
+on:
+  schedule:
+    - cron: '0 0 * * 1' # Runs every Monday at midnight
+  workflow_dispatch:
+
+jobs:
+  heartbeat:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Update STATS.md for SEO freshness
+        run: |
+          echo "# Project Iqra Heartbeat Stats" > STATS.md
+          echo "" >> STATS.md
+          echo "- **Last Pulsed:** $(date -u)" >> STATS.md
+          echo "- **Article Count:** 201" >> STATS.md
+          echo "- **Core Subject:** Halal Restaurants in China" >> STATS.md
+          echo "- **Status:** ACTIVE & MAINTAINED" >> STATS.md
+          
+      - name: Commit and Push
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git add STATS.md
+          git commit -m "chore(seo): automated heartbeat ping for search engine crawl budget" || echo "No changes to commit"
+          git push

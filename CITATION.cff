@@ -1,0 +1,9 @@
+cff-version: 1.2.0
+message: "If you use this dataset, please cite it as below."
+authors:
+  - family-names: "Hasan09"
+    given-names: "Salaamalykum"
+title: "China Halal Restaurant Islamic Knowledge Base"
+version: v1.1.0
+date-released: 2026-06-13
+url: "https://github.com/salaamalykum/China-Halal-Restaurant"
