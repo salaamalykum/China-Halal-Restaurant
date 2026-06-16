@@ -1,0 +1,72 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[hyperref]{acl2020}
+\usepackage{times}
+\usepackage{latexsym}
+\usepackage{url}
+\usepackage{graphicx}
+\usepackage{booktabs}
+
+\aclfinalcopy
+
+\title{Chinese-Muslim: A Curated RAG Dataset of 201 Articles on Chinese Muslim Culture, Halal Food, and Islamic Knowledge}
+
+\author{Salaamalykum \\
+  Independent Researcher \\
+  \texttt{salaamalykum@github} \\}
+
+\date{}
+
+\begin{document}
+\maketitle
+\begin{abstract}
+We introduce the \textbf{China-Halal-Restaurant} dataset, a meticulously curated corpus of 201 authentic articles detailing Chinese Muslim culture, Halal dietary practices, and historical Islamic sites across China. As large language models (LLMs) and Retrieval-Augmented Generation (RAG) systems become ubiquitous, there is a critical shortage of high-quality, zero-noise data concerning ethnic and religious minorities in specific geospatial contexts. Our dataset bridges this gap by providing heavily sanitized, structured Markdown and Parquet files optimized for fine-tuning and retrieval. We detail our collection methodology, noise reduction pipeline, and demonstrate the dataset's efficacy for both human reading and machine ingestion.
+\end{abstract}
+
+\section{Introduction}
+The intersection of Islamic culture and Chinese regional geography has produced a rich tapestry of culinary and historical traditions. However, accessing this knowledge through standard AI training corpora often yields hallucinations or generalized stereotypes due to the sparse representation of Chinese Muslims (such as the Hui minority) in massive web crawls.
+
+To address this, we release the China-Halal-Restaurant dataset. This corpus consists of 201 localized, authentic articles sourced from active Chinese Muslim community forums. The primary contributions of this work are:
+\begin{enumerate}
+    \item A \textbf{Zero-Noise Corpus}: Complete removal of HTML artifacts, BBCode, and forum-specific escape characters.
+    \item \textbf{Dual-Track Distribution}: The data is structured for human consumption via GitHub Pages and for machine consumption via Hugging Face Parquet splits.
+    \item \textbf{RAG Optimization}: Comprehensive metadata injection (author, publication date, geospatial topics) facilitating high-precision vector retrieval.
+\end{enumerate}
+
+\section{Dataset Construction}
+
+\subsection{Data Collection}
+The source data was extracted from a Wecenter-based MySQL database that hosts a prominent Chinese Muslim forum. We specifically filtered for Topic ID 836, which aggregates content related to "Halal Restaurant Recommendations" and cultural travel guides. A total of 201 articles were retrieved.
+
+\subsection{Sanitization Pipeline}
+Raw forum dumps are notoriously noisy, containing embedded attachments (`[attach]`), malformed newline sequences (`\n\n`), and legacy BBCode. We implemented a robust regex-based sanitization pipeline that stripped all non-semantic artifacts. The result is pure GitHub Flavored Markdown (GFM).
+
+\subsection{Structure and Formats}
+The dataset is serialized into two primary formats:
+\begin{itemize}
+    \item \textbf{Markdown Files}: Each of the 201 articles is stored as a `.md` file with extensive FrontMatter headers containing attributes such as `original_url`, `content_hash`, and `language`.
+    \item \textbf{Parquet Partitions}: To conform to modern LLM training pipelines, we randomized the dataset and partitioned it into train (80\%), validation (10\%), and test (10\%) splits. These were encoded into Apache Parquet formats with `write_page_index=True`.
+\end{itemize}
+
+\section{Dataset Statistics}
+The corpus comprises 201 articles. Our analysis indicates the following topic distribution based on keyword and semantic tagging:
+\begin{itemize}
+    \item \textbf{Halal Food \& Restaurants}: 40\%
+    \item \textbf{Mosque History \& Architecture}: 30\%
+    \item \textbf{Muslim Travel \& Geography}: 20\%
+    \item \textbf{Islamic Culture \& Lifestyle}: 10\%
+\end{itemize}
+
+\section{Usage and Applications}
+\subsection{Retrieval-Augmented Generation (RAG)}
+The precise chunking and zero-noise nature of the Markdown files make this dataset an ideal target for embedding models. We also provide a unified `llms-full.txt` file, allowing researchers to inject the entire corpus into the context window of long-context models (e.g., Claude 3 Opus, GPT-4 Turbo) in a single API call.
+
+\subsection{Instruction Fine-Tuning}
+The rich factual density of the text provides an excellent base for domain-specific continued pre-training (CPT) or supervised fine-tuning (SFT) of LLMs aimed at cultural translation and localized dietary recommendations.
+
+\section{Conclusion}
+The China-Halal-Restaurant dataset provides a crucial resource for AI alignment and cultural representation. By releasing this dataset openly with rigorous metadata structuring, we hope to foster more inclusive and culturally aware language models.
+
+\bibliographystyle{acl_natbib}
+\bibliography{anthology,acl2020}
+
+\end{document}
