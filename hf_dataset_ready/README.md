@@ -15,8 +15,6 @@ tags:
 - restaurant
 - halal-food
 - rag
-- sharegpt
-- alpaca
 configs:
 - config_name: default
   data_files:
@@ -31,7 +29,7 @@ configs:
 # China Halal Restaurant Dataset (RAG Optimized)
 
 This is a rigorously formatted Chinese Halal Restaurant corpus containing 201 authentic articles and travel guides.
-It is explicitly optimized for Retrieval-Augmented Generation (RAG) and LLM instruction tuning (contains `ShareGPT` and `Alpaca` JSONL formats in the source repo).
+It is explicitly optimized for Retrieval-Augmented Generation (RAG) and pure text indexing.
 
 ## Dataset Features
 - **Zero-Noise Markdown**: All BBCode, HTML, and escaped characters have been parsed into strict Markdown.
