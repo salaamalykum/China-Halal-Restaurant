@@ -1,0 +1,28 @@
+---
+layout: null
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>{{ site.title | xml_escape }}</title>
+  <subtitle>{{ site.description | xml_escape }}</subtitle>
+  <link href="{{ site.url }}{{ site.baseurl }}/atom.xml" rel="self" type="application/atom+xml"/>
+  <link href="{{ site.url }}{{ site.baseurl }}/" rel="alternate" type="text/html"/>
+  <id>{{ site.url }}{{ site.baseurl }}/</id>
+  <updated>{{ site.lastmod }}</updated>
+  <author>
+    <name>{{ site.title | xml_escape }}</name>
+  </author>
+  {% for page in site.pages %}
+  {% if page.layout == 'article' %}
+  <entry>
+    <title>{{ page.title | xml_escape }}</title>
+    <link href="{{ site.url }}{{ site.baseurl }}{{ page.url }}" rel="alternate" type="text/html"/>
+    <id>{{ page.canonical_url | default: site.url | append: site.baseurl | append: page.url }}</id>
+    <published>{{ page.pub_date | default: page.lastmod }}</published>
+    <updated>{{ page.lastmod | default: site.lastmod }}</updated>
+    {% if page.author %}<author><name>{{ page.author | xml_escape }}</name></author>{% endif %}
+    <summary>{{ page.title | xml_escape }}</summary>
+  </entry>
+  {% endif %}
+  {% endfor %}
+</feed>

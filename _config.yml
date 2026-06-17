@@ -3,4 +3,16 @@ description: A highly structured corpus of Islamic articles.
 url: "https://salaamalykum.github.io"
 baseurl: "/China-Halal-Restaurant"
 theme: minima
-lastmod: "2026-06-13T14:45:34Z"
+lastmod: "2026-06-17T00:00:00Z"
+
+include:
+  - robots.txt
+  - sitemap.xml
+  - feed.xml
+  - atom.xml
+  - llms.txt
+  - llms-full.txt
+
+plugins:
+  - jekyll-sitemap
+  - jekyll-feed

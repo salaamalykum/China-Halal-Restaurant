@@ -60,10 +60,11 @@ layout: default
 <div class="articles-grid" id="articlesGrid">
     {% assign articles = site.pages | where: "layout", "article" | sort: "pub_date" | reverse %}
     {% for article in articles %}
-    <a href="{{ article.url | relative_url }}" class="article-card" data-title="{{ article.title | downcase }}" data-tags="{{ article.tags | join: ',' | downcase }}">
+    <a href="{{ article.url | relative_url }}" class="article-card" data-title="{{ article.title | downcase }}" data-tags="{{ article.topics | default: article.tags | join: ',' | downcase }}">
         <div class="card-content">
             <div class="card-tags">
-                {% for tag in article.tags limit:2 %}
+                {% assign tags = article.topics | default: article.tags %}
+                {% for tag in tags limit:2 %}
                 <span class="card-tag">{{ tag }}</span>
                 {% endfor %}
             </div>

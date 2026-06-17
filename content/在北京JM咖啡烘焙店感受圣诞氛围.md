@@ -5,7 +5,7 @@ original_url: "https://salaamalykum.com/article/1413"
 canonical_url: "https://salaamalykum.github.io/China-Halal-Restaurant/content/在北京JM咖啡烘焙店感受圣诞氛围.html"
 author: "salaamalykum_54"
 pub_date: "2026-05-14T15:17:44Z"
-lastmod: "2026-06-16T23:24:00Z"
+lastmod: "2026-06-17T00:02:43Z"
 language: "zh-CN"
 topics: ["Halal Restaurant", "Chinese Muslim", "Halal Food", "RAG Corpus"]
 content_hash: "3fb17d2027dff1cdb97850ed69063812749c8383840da9215416e1029bfd0ccd"

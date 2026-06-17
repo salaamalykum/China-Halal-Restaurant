@@ -4,7 +4,8 @@ layout: default
 <article class="article-container">
     <header class="article-header">
         <div class="article-meta-tags">
-            {% for tag in page.tags %}
+            {% assign tags = page.topics | default: page.tags %}
+            {% for tag in tags %}
                 <span class="badge">{{ tag }}</span>
             {% endfor %}
         </div>
