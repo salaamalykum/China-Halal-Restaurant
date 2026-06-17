@@ -1,11 +1,11 @@
 ---
 layout: "article"
 title: "北京Samosa中巴友谊餐厅一周年店庆"
-original_url: "https://salaamalykum.com/article/1633"
+original_url: "https://salaamalykum.com/cn/article/1633"
 canonical_url: "https://salaamalykum.github.io/China-Halal-Restaurant/content/北京Samosa中巴友谊餐厅一周年店庆.html"
 author: "salaamalykum_54"
 pub_date: "2026-05-15T02:28:58Z"
-lastmod: "2026-06-17T00:02:43Z"
+lastmod: "2026-06-17T00:21:11Z"
 language: "zh-CN"
 topics: ["Halal Restaurant", "Chinese Muslim", "Halal Food", "RAG Corpus"]
 content_hash: "59eecd311bbb493165434e86e0eb0bfcce61b259d9be33e569cd03cb5cf7fdf1"
