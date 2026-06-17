@@ -1,0 +1,23 @@
+changelog:
+  exclude:
+    labels:
+      - ignore-for-release
+  categories:
+    - title: Breaking Changes 🛠
+      labels:
+        - breaking-change
+    - title: Metadata Updates 📝
+      labels:
+        - metadata
+        - SEO
+    - title: Dataset Updates 📊
+      labels:
+        - dataset
+        - HF
+    - title: Bug Fixes 🐛
+      labels:
+        - bug
+        - fix
+    - title: Other Changes
+      labels:
+        - "*"
